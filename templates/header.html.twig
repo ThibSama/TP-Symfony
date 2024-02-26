@@ -1,0 +1,53 @@
+<header class="bg-gray-800 text-white">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div>
+                <a href="/" class="text-white text-xl font-bold">
+                    <img src="images/thibicon.jpeg" alt="Logo de l'entreprise" class="inline-block h-8">
+                    Symfony/Twig e-commerce
+                </a>
+            </div>
+
+           <nav>
+                <ul class="flex items-center">
+                    <li class="ml-6">
+                        <a href="/" class="hover:text-gray-300">Accueil</a>
+                    </li>
+                    <li class="ml-6">
+                        <a href="/products" class="hover:text-gray-300">Produits</a>
+                    </li>
+                    <li class="ml-6">
+                        <a href="/categories" class="hover:text-gray-300">Categories</a>
+                    </li>
+                    <li class="ml-6">
+                        <a href="/shopping" class="hover:text-gray-300">Panier</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <ul class="flex items-center">
+                <!-- Boutons ou liens supplémentaires -->
+                {% if app.user is null %}
+                <li>
+                <a href="/login" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded">
+                        Se connecter
+                    </a>
+                </li>
+
+                <li>
+                <a href="/register" class="bg-blue-500 shover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        S'enregistrer
+                    </a>
+                </li>
+
+                {% else %}
+                <li>
+                <a href="/logout" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Déconnexion
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</header>

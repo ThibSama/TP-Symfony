@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoriesController!{% endblock %}
+
+{% block body %}
+<div class="grid grid-cols-2 gap-4">
+    {% for parent in categories %}
+
+    {% if parent.parent is null %}
+        <div class="group">
+            <button class="categories max-w-sm rounded overflow-hidden shadow-lg font-bold text-xl mb-2 px-6 py-4">
+                {{ parent.name }}
+            </button>
+            <div class="hidden group-focus:block cat-{{ parent.name }}">
+                {% for subcategory in categories %}
+                    {% if (subcategory.parent is not null) and (subcategory.parent.id == parent.id) %}
+                        <a class="pl-6 py-2 category" href="/ps/{{ subcategory.id }}">{{ subcategory.name }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ShowProductsSubcategoryController!{% endblock %}
+
+{% block body %}
+{% for products in product %}
+    <div class="card" style="width: 18rem;">
+        <h5 class="card-title">{{ products.name }}</h5>
+        <p class="card-text">{{ products.description }}</p>
+        <p class="card-text">{{ products.price }}€</p>
+    </div>
+{% endfor %}
+{% endblock %}
